@@ -59,6 +59,30 @@ class UserRegistrationTest {
 	        }
 	        assertFalse(result);
 	    }
+	    @Test
+	    public void emailTestShouldReturnTrue() {
+	        boolean result = false;
+	        try {
+	            ExpectedException expectedException = ExpectedException.none();
+	            expectedException.expect(InvalidUserException1.class);
+	            result = userRegistration.email("^[a-zA-Z0-9\\-\\+\\.]+.([a-zA-Z0-9])*@([a-z0-9]+.[a-z]{2,}.([a-z]{2,})?)$","niha199831@gmail.com","Happy");
+	        } catch (InvalidUserException1 e) {
+	            e.printStackTrace();
+	        }
+	        assertTrue(result);
+	    }
+	    @Test
+	    public void emailTestShouldReturnFalse() {
+	        boolean result = false;
+	        try {
+	            ExpectedException expectedException = ExpectedException.none();
+	            expectedException.expect(InvalidUserException1.class);
+	            result = userRegistration.email("^[a-zA-Z0-9\\-\\+\\.]+.([a-zA-Z0-9])*@([a-z0-9]+.[a-z]{2,}.([a-z]{2,})?)$","niharika199831#gmail.com","Happy");
+	        } catch (InvalidUserException1 e) {
+	            e.printStackTrace();
+	        }
+	        assertFalse(result);
+	    }
 }
 
 
