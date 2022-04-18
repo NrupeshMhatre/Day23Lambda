@@ -4,10 +4,10 @@ import java.util.regex.Pattern;
 
 @FunctionalInterface
 interface Check {
-    boolean check(String a, String b, String c) throws InvalidUserException;
+    boolean check(String a, String b, String c) throws InvalidUserException1;
 }
 public class UserRegistrationLambda {
-	public static void main(String[] args) throws InvalidUserException {
+	public static void main(String[] args) throws InvalidUserException1 {
         Check firstName = (String pattern, String fname, String mood) -> {try {
             if (mood.equals("Happy")) {
                 if (Pattern.matches(pattern, fname))
@@ -17,8 +17,21 @@ public class UserRegistrationLambda {
             } else
                 return false;
         }catch (NullPointerException e) {
-            throw new InvalidUserException("Please enter proper message");
-        }};}}
+            throw new InvalidUserException1("Please enter proper message");
+        }};
+        Check lastName = (String pattern, String lname, String mood) -> {try {
+            if (mood.equals("Happy")) {
+                if (Pattern.matches(pattern, lname))
+                    return true;
+                else
+                    return false;
+            } else
+                return false;
+        }catch (NullPointerException e) {
+            throw new InvalidUserException1("Please enter proper message");
+        }};    
+	
+	}}
 	          
 
 
