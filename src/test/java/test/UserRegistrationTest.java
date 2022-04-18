@@ -83,6 +83,18 @@ class UserRegistrationTest {
 	        }
 	        assertFalse(result);
 	    }
+	    @Test
+	    public void phoneTestShouldReturnTrue() {
+	        boolean result = false;
+	        try {
+	            ExpectedException expectedException = ExpectedException.none();
+	            expectedException.expect(InvalidUserException1.class);
+	            result = userRegistration.phone("^[0-9]{2}[ ]?[0-9]{10}$","917057114002","Happy");
+	        } catch (InvalidUserException1 e) {
+	            e.printStackTrace();
+	        }
+	        assertTrue(result);
+}
 }
 
 

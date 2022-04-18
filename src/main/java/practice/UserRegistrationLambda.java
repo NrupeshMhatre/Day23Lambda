@@ -30,7 +30,28 @@ public class UserRegistrationLambda {
         }catch (NullPointerException e) {
             throw new InvalidUserException1("Please enter proper message");
         }};    
-	
+        Check email = (String pattern, String iEmail, String mood) -> {try {
+            if (mood.equals("Happy")) {
+                if (Pattern.matches(pattern, iEmail))
+                    return true;
+                else
+                    return false;
+            } else
+                return false;
+        }catch (NullPointerException e) {
+            throw new InvalidUserException1("Please enter proper message");
+        }};
+        Check phone = (String pattern, String iPhone, String mood) -> {try {
+            if (mood.equals("Happy")) {
+                if (Pattern.matches(pattern, iPhone))
+                    return true;
+                else
+                    return false;
+            } else
+                return false;
+        }catch (NullPointerException e) {
+            throw new InvalidUserException1("Please enter proper message");
+        }};
 	}}
 	          
 
