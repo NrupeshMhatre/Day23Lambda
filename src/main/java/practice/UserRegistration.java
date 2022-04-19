@@ -42,4 +42,17 @@ public class UserRegistration {
 	            throw new InvalidUserException1("Please enter proper message");
 	        }
 	    }
+	 public boolean phone(String pattern,String phone,String mood) throws InvalidUserException1 {
+	        try {
+	            if (mood.equals("Happy")) {
+	                if (Pattern.matches(pattern, phone))
+	                    return true;
+	                else
+	                    return false;
+	            } else
+	                return false;
+	        }catch (NullPointerException e) {
+	            throw new InvalidUserException1("Please enter proper message");
+	        }
+	    }
 }
