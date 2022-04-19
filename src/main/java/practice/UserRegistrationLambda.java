@@ -53,5 +53,16 @@ public class UserRegistrationLambda {
 	        }catch (NullPointerException e) {
 	            throw new InvalidUserException1("Please enter proper message");
 	        }};
+	        Check password = (String pattern, String iPassword, String mood) -> {try {
+	            if (mood.equals("Happy")) {
+	                if (Pattern.matches(pattern, iPassword))
+	                    return true;
+	                else
+	                    return false;
+	            } else
+	                return false;
+	        }catch (NullPointerException e) {
+	            throw new InvalidUserException1("Please enter proper message");
+	        }};
 	}
 }

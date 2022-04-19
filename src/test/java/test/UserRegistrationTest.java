@@ -109,5 +109,29 @@ class UserRegistrationTest {
 	        }
 	        assertFalse(result);
 	    }
+	    @Test
+	    public void passwordTestShouldReturnTrue() {
+	        boolean result = false;
+	        try {
+	            ExpectedException expectedException = ExpectedException.none();
+	            expectedException.expect(InvalidUserException1.class);
+	            result = userRegistration.password("^(?=.{8,}$)(?=.*\\d)(?=.*[A-Z])([a-zA-Z0-9]+[\\@\\#\\^])","raghu23A@","Happy");
+	        } catch (InvalidUserException1 e) {
+	            e.printStackTrace();
+	        }
+	        assertTrue(result);
+	    }
+	    @Test
+	    public void passwordTestShouldReturnFalse() {
+	        boolean result = false;
+	        try {
+	            ExpectedException expectedException = ExpectedException.none();
+	            expectedException.expect(InvalidUserException1.class);
+	            result = userRegistration.password("^(?=.{8,}$)(?=.*\\d)(?=.*[A-Z])([a-zA-Z0-9]+[\\@\\#\\^])","raghu123A","Happy");
+	        } catch (InvalidUserException1 e) {
+	            e.printStackTrace();
+	        }
+	        assertFalse(result);
+	    }
 }
 
