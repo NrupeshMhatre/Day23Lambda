@@ -64,5 +64,16 @@ public class UserRegistrationLambda {
 	        }catch (NullPointerException e) {
 	            throw new InvalidUserException1("Please enter proper message");
 	        }};
+	        firstName.check("^[A-Z]{1}[a-z]{3,}$","Nrupesh","HAPPY");
+	        firstName.check("^[A-Z]{1}[a-z]{3,}$","Soni","HAPPY");
+	        lastName.check("^[A-Z]{1}[a-z]{3,}$","Mhatre","Happy");
+	        lastName.check("^[A-Z]{1}[a-z]{3,}$","Mhatre","Happy");
+	        email.check("^[a-zA-Z0-9\\-\\+\\.]+.([a-zA-Z0-9])*@([a-z0-9]+.[a-z]{2,}.([a-z]{2,})?)$","mhatre@gmail.com","Happy");
+	        email.check("^[a-zA-Z0-9\\-\\+\\.]+.([a-zA-Z0-9])*@([a-z0-9]+.[a-z]{2,}.([a-z]{2,})?)$","rabbu007#gmail.com","Happy");
+	        phone.check("^[0-9]{2}[ ]?[0-9]{10}$","912345879621","Happy");
+	        phone.check("^[0-9]{2}[ ]?[0-9]{10}$","919039165805","Happy");
+	        password.check("^(?=.{8,}$)(?=.*\\d)(?=.*[A-Z])([a-zA-Z0-9]+[\\@\\#\\^])","nrupesh@","Happy");
+	        password.check("^(?=.{8,}$)(?=.*\\d)(?=.*[A-Z])([a-zA-Z0-9]+[\\@\\#\\^])","rabba023","Happy");
+
 	}
 }
